@@ -1,0 +1,90 @@
+:root {
+    --primary-color: #140747;
+    --secondary-color: #241560;
+    --buttons-color: #4224B7;
+}
+
+.desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#desktop-span {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, .3);
+    position: absolute;
+    top: 33%;
+    left: 42%;
+    border-radius: 50%;
+    filter: blur(200px);
+}
+
+.desktop-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.desktop-text h1 {
+    font-size: 96px;
+}
+
+.desktop-text p {
+    font-size: 24px;
+    font-weight: 500;
+    opacity: .3;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 391px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobile h1 {
+        font-size: 48px;
+    }
+
+    .no-fish-text {
+        font-size: 32px;
+        opacity: .3;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .no-fishcards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 48px;
+        margin-bottom: 24px;
+        height: 90vh;
+        justify-content: space-between;
+    }
+
+    .create-fishcards-button {
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        background-color: var(--buttons-color);
+        padding: 17px 61px;
+        border-radius: 10px;
+    }
+}
