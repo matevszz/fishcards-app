@@ -45,7 +45,7 @@
     display: none;
 }
 
-@media (max-width: 391px) {
+@media (max-width: 800px) {
     .desktop {
         display: none;
     }
