@@ -57,10 +57,6 @@
         align-items: center;
     }
 
-    .mobile h1 {
-        font-size: 48px;
-    }
-
     .no-fish-text {
         font-size: 32px;
         opacity: .3;
@@ -73,7 +69,6 @@
         flex-direction: column;
         align-items: center;
         margin-top: 48px;
-        margin-bottom: 24px;
         height: 90vh;
         justify-content: space-between;
     }
@@ -86,5 +81,6 @@
         background-color: var(--buttons-color);
         padding: 17px 61px;
         border-radius: 10px;
+        border: none;
     }
 }

@@ -1,0 +1,49 @@
+.mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+input {
+    width: 294px;
+    height: 64px;
+    font-size: 24px;
+    font-weight: 500;
+    padding-left: 24px;
+    background-color: #241560;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    width: 342px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background-color: #1B133B;
+    border-radius: 20px;
+    outline: 1px solid white;
+}
+
+.save {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: var(--buttons-color);
+    padding: 17px 61px;
+    border-radius: 10px;
+    border: none;
+    position: fixed;
+    bottom: 24px;
+    width: 342px;
+}
