@@ -32,6 +32,7 @@ ul {
     background-color: #1B133B;
     border-radius: 20px;
     outline: 1px solid white;
+    margin-bottom: 24px;
 }
 
 .save {
@@ -46,4 +47,15 @@ ul {
     position: fixed;
     bottom: 24px;
     width: 342px;
+}
+
+.add {
+    width: 171px;
+    height: 64px;
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background: #4224B7;
 }
