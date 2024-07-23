@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btnAddFishcard = document.querySelector('.add');
         const liFishcard = document.querySelector('.fishcards');
         const btnSave = document.querySelector('.save');
-        const title = document.querySelector('.title');
+        const titles = document.querySelector('.title');
         const input = document.querySelector('input');
 
         const addFishcard = () => {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnAddFishcard.addEventListener('click', addFishcard);
 
         btnSave.addEventListener('click', () => {
-            if (title.value.length === 0) {
+            if (titles.value.length === 0) {
                 alert('Wypełnij wszystkie obszary!');
             } else {
                 const fishcards = Array.from(liFishcard.querySelectorAll('ul')).map(ul => {
@@ -38,9 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                 });
 
-                // Zapisz dane do localStorage
-                localStorage.setItem('title', title.value);
-                localStorage.setItem('fishcards', JSON.stringify(fishcards));
+                const existingTitles = JSON.parse(localStorage.getItem('titles')) || [];
+                const existingFishcards = JSON.parse(localStorage.getItem('fishcards')) || [];
+
+                // Dodaj nowy tytuł i fishcards do istniejących danych
+                const updatedTitles = [...existingTitles, titles.value];
+                const updatedFishcards = [...existingFishcards, ...fishcards];
+
+                // Zapisz zaktualizowane dane do localStorage
+                localStorage.setItem('titles', JSON.stringify(updatedTitles));
+                localStorage.setItem('fishcards', JSON.stringify(updatedFishcards));
 
                 // Przekieruj do drugiej strony
                 window.location.href = 'index.html';
@@ -50,13 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (path.includes('index.html')) {
         const main = document.querySelector('.main');
 
-        const localTitle = localStorage.getItem('title');
+        const localTitles = JSON.parse(localStorage.getItem('titles')) || [];
 
 
-            if(localTitle) {
-                const ul = document.createElement('ul');
-                ul.innerHTML = localTitle;
-                main.appendChild(ul);
-            }
+            localTitles.forEach(title => {
+                const titleElement = document.createElement('h1');
+                titleElement.textContent = title;
+                main.appendChild(titleElement);
+            });
     }
 });
