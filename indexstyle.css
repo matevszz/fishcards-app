@@ -57,7 +57,7 @@
         align-items: center;
     }
 
-    .no-fish-text {
+    .no-fish {
         font-size: 32px;
         opacity: .3;
         font-weight: 500;
@@ -82,9 +82,5 @@
         padding: 17px 61px;
         border-radius: 10px;
         border: none;
-    }
-
-    .main {
-        display: none;
     }
 }

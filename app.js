@@ -66,4 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 main.appendChild(titleElement);
             });
     }
+
+    if('title' in localStorage) {
+        document.querySelector('.no-fish').style.display = 'none';
+        document.querySelector('.main').style.display = 'block';
+    }
+    else {
+        document.querySelector('.no-fish').style.display = 'flex';
+        document.querySelector('.main').style.display = 'none';
+    }
+
 });
