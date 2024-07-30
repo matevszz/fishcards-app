@@ -43,7 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Dodaj nowy tytuł i fishcards do istniejących danych
                 const updatedTitles = [...existingTitles, titles.value];
-                const updatedFishcards = [...existingFishcards, ...fishcards];
+                const updatedFishcards = {
+                    ...existingFishcards,
+                    [titles.value]: fishcards
+                }
 
                 // Zapisz zaktualizowane dane do localStorage
                 localStorage.setItem('titles', JSON.stringify(updatedTitles));
@@ -58,22 +61,43 @@ document.addEventListener('DOMContentLoaded', () => {
         const main = document.querySelector('.main');
 
         const localTitles = JSON.parse(localStorage.getItem('titles')) || [];
+        const localFishcards = JSON.parse(localStorage.getItem('fishcards')) || {};
 
+        const deleteTitle = (title) => {
+            const updatedTitles = localTitles.filter(t => t !== title);
+            delete localFishcards[title];
 
-            localTitles.forEach(title => {
-                const titleElement = document.createElement('h1');
-                titleElement.textContent = title;
-                main.appendChild(titleElement);
+            localStorage.setItem('titles', JSON.stringify(updatedTitles));
+            localStorage.setItem('fishcards', JSON.stringify(localFishcards));
+
+            window.location.reload();
+        };
+
+        localTitles.forEach(title => {
+            const titleElement = document.createElement('ul');
+            titleElement.textContent = title;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'X';
+            deleteBtn.classList.add('deleteBtn');
+            deleteBtn.addEventListener('click', () => {
+                deleteTitle(title);
             });
-    }
 
-    if(localStorage["title"] === null) {
-        document.querySelector('.main').style.display = 'none';
-        document.querySelector('.no-fish').style.display = 'flex';
-    }
-    else {
-        document.querySelector('.main').style.display = 'block';
-        document.querySelector('.no-fish').style.display = 'none';
-    }
+            titleElement.appendChild(deleteBtn);
+            main.appendChild(titleElement);
+            });
 
+
+            if(localTitles.length === 0) {
+                document.querySelector('.main').style.display = 'none';
+                document.querySelector('.no-fish').style.display = 'flex';
+            }
+            else {
+                document.querySelector('.main').style.display = 'block';
+                document.querySelector('.no-fish').style.display = 'none';
+            }
+        }
 });
+
+console.log('gowno');

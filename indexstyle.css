@@ -83,4 +83,26 @@
         border-radius: 10px;
         border: none;
     }
+
+    .main ul {
+        width: 342px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #241560;
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        border-radius: 10px;
+        padding: 0 24px;
+    }
+
+    .deleteBtn {
+        font-size: 32px;
+        font-weight: 600;
+        color: white;
+        background: none;
+        border: none;
+    }
 }
